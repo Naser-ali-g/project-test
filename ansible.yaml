@@ -5,15 +5,15 @@ tasks:
     command: sudo update aptche
     ignore_errors: yes
 
-  - name: stop running containers
+  - name: stop running containers if exist 
     command: docker stop nginx
     ignore_errors: yes
 
-  - name: remove containers
+  - name: remove containers if exist       
     command: docker rm nginx
     ignore_errors: yes
 
-  - name: remove image
+  - name: remove images if exist
     command: docker rmi nginx
     ignore_errors: yes
 
