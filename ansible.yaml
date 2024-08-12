@@ -22,3 +22,7 @@ tasks:
 
   - name: create new container
     command: docker run -d --name nginx_new -p 8080 nginx_new
+
+  - name: stop running containers
+    command: docker stop nginx_new
+    ignore_errors: yes
