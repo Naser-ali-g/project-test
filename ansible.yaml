@@ -2,14 +2,14 @@ name: "ansible playbook 1 "
 hosts: any
 tasks:
   - name: update the package
-    command: sudo update aptche
+    command: apt update
     ignore_errors: yes
 
-  - name: stop running containers if exist 
+  - name: stop running containers if exist
     command: docker stop nginx
     ignore_errors: yes
 
-  - name: remove containers if exist       
+  - name: remove containers if exist
     command: docker rm nginx
     ignore_errors: yes
 
@@ -18,11 +18,12 @@ tasks:
     ignore_errors: yes
 
   - name: build new image
-    command: docker build -t nginx_new .
+    command: docker build -t nginx_new
+    ignore_errors: yes
 
   - name: create new container
-    command: docker run -d --name nginx_new -p 8080 nginx_new
+    command: docker run -d --name httpd_new -p 8080 httpd:latest
 
-  - name: stop running containers
-    command: docker stop nginx_new
-    ignore_errors: yes
+  # - name: stop running containers
+  #  command: docker stop nginx_new
+#  ignore_errors: yes
