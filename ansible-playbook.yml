@@ -23,7 +23,7 @@
       ignore_errors: yes
 
     - name: create new container
-      command: docker run -d --name httpd_new -p 8080 httpd:latest
+      command: docker run -d --name httpd_new -p 80:80 httpd:latest
 
   # - name: stop running containers
   #  command: docker stop nginx_new
